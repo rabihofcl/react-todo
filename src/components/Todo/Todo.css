@@ -1,0 +1,18 @@
+.todo-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.todo-item {
+    list-style-type: none;
+    background: white;
+    width: 25em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.3;
+}
