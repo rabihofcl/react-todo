@@ -13,6 +13,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filterTodos, setFilterTodos] = useState([]);
+  const [editTodo, setEditTodo] = useState(null);
 
   //RUN INCE when the app start
   useEffect(() => {
@@ -22,8 +23,9 @@ function App() {
   // USE EFFECT
   useEffect(() => {
     filterHandler();
-    saveLocalTodos();
-  }, [todos, status])   
+    saveLocalTodos();      // eslint-disable-next-line 
+  }, [todos, status]);     
+
 
   const filterHandler = () => {
     switch(status){
@@ -58,10 +60,24 @@ function App() {
       <header className='todo-header'>
         <h1>ToDo List</h1>
       </header>
-      <Form inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} setStatus={setStatus}/>
-      <TodoList filterTodos={filterTodos} todos={todos} setTodos={setTodos}/>
+      <Form
+        inputText={inputText}
+        todos={todos}
+        setTodos={setTodos}
+        setInputText={setInputText}
+        setStatus={setStatus}
+        editTodo={editTodo}
+        setEditTodo={setEditTodo}
+      />
+      <TodoList
+        filterTodos={filterTodos}
+        todos={todos}
+        setTodos={setTodos} 
+        setEditTodo={setEditTodo}
+      />
     </div>
   );
 }
+
 
 export default App;

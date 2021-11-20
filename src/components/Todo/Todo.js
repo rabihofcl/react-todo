@@ -1,7 +1,7 @@
 import React from 'react'
 import './Todo.css'
 
-function Todo({ text, todo, todos, setTodos }) {
+function Todo({ text, todo, todos, setTodos, setEditTodo }) {
 
     const deleteHandler = () => {
         setTodos(todos.filter((el) => el.id !== todo.id));
@@ -18,11 +18,18 @@ function Todo({ text, todo, todos, setTodos }) {
         }))
     }
 
+    const handleEdit =({id}) => {
+        const findTodo = todos.find((todo) => todo.id === id);
+        setEditTodo(findTodo);
+    }
+
+
     return (
         <div  className="todo-div">
             <li className={`todo-item ${todo.completed ? "completed" : ""}`}>{text}</li>
-            <button onClick={completeHandler} className="complete-btn"><i className="fas fa-check"></i></button>
-            <button onClick={deleteHandler} className="trash-btn"><i className="fas fa-trash"></i></button>
+            <button onClick={completeHandler} className="complete-btn"><i className="fas fa-check fa-2x"></i></button>
+            <button onClick={() => handleEdit(todo)} className="edit-btn"><i className="fas fa-pen fa-2x"></i></button>
+            <button onClick={deleteHandler} className="trash-btn"><i className="fas fa-trash fa-2x"></i></button>
         </div>
     )
 }
