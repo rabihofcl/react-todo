@@ -15,7 +15,8 @@ function App() {
   const [filterTodos, setFilterTodos] = useState([]);
   const [editTodo, setEditTodo] = useState(null);
 
-  //RUN INCE when the app start
+
+  //RUN ONCE when the app start
   useEffect(() => {
     getLocalTodos();
   }, []);
@@ -24,11 +25,11 @@ function App() {
   useEffect(() => {
     filterHandler();
     saveLocalTodos();      // eslint-disable-next-line 
-  }, [todos, status]);     
+  }, [todos, status]);
 
 
   const filterHandler = () => {
-    switch(status){
+    switch (status) {
       case 'completed':
         setFilterTodos(todos.filter(todos => todos.completed === true))
         break;
@@ -57,24 +58,39 @@ function App() {
 
   return (
     <div className="App">
-      <header className='todo-header'>
-        <h1>ToDo List</h1>
-      </header>
-      <Form
-        inputText={inputText}
-        todos={todos}
-        setTodos={setTodos}
-        setInputText={setInputText}
-        setStatus={setStatus}
-        editTodo={editTodo}
-        setEditTodo={setEditTodo}
-      />
-      <TodoList
-        filterTodos={filterTodos}
-        todos={todos}
-        setTodos={setTodos} 
-        setEditTodo={setEditTodo}
-      />
+      <div className="row">
+        <div className="col-md-12">
+          <div className="row">
+            <div className="col-md-4 col-4"></div>
+            <div className="col-md-4">
+              <div className="container">
+                <header className='todo-header'>
+                  <h1>ToDo List</h1>
+                </header>
+                <Form
+                  inputText={inputText}
+                  todos={todos}
+                  setTodos={setTodos}
+                  setInputText={setInputText}
+                  setStatus={setStatus}
+                  editTodo={editTodo}
+                  setEditTodo={setEditTodo}
+                />
+                <TodoList
+                  filterTodos={filterTodos}
+                  todos={todos}
+                  setTodos={setTodos}
+                  setEditTodo={setEditTodo}
+                />
+              </div>
+
+            </div>
+            <div className="col-md-4 col-4"></div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   );
 }

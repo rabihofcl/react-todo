@@ -1,11 +1,9 @@
-body {
-  background-repeat: no-repeat;
-  background-color: #ff9966;
-}
+
 
 .todo-header {
   color: white;
   text-align: center;
-  margin-top: 5em;
+  margin-top: 3em;
   font-size: large;
+  margin-bottom: 2em;
 }

@@ -1,4 +1,3 @@
-.todolist-div {
-    display: flex;
-    justify-content: center;
+.todo-list {
+    padding-right: 2rem;
 }
